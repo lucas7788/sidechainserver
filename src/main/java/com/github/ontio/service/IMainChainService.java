@@ -6,5 +6,5 @@ public interface IMainChainService {
     Result getMainCurrBlkHeight();
     Result getMainNotifyByBlkHeight(int blkHeight);
     Result getMainNotifyByTxHash(String txhash);
-    Result getMainNotifyAll();
+    Result getMainNotify(Integer pageSize, Integer pageNumber);
 }

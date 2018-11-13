@@ -4,6 +4,7 @@ import com.github.ontio.model.NotifyInfoDao;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Map;
 
 @Mapper
@@ -12,11 +13,11 @@ public interface NotifyMapper {
     int insertMainNotify(NotifyInfoDao info);
     int insertSideNotify(NotifyInfoDao info);
 
-    Map selectMainNotifyByHeight(Integer height);
-    Map selectMainNotifyByTxhash(String txhash);
-    Map selectMainNotify(Integer pageSize, Integer pageNumber);
+    List<Map> selectMainNotifyByHeight(Integer height);
+    List<Map> selectMainNotifyByTxhash(String txhash);
+    List<Map> selectMainNotifyByPage(Integer start, Integer pageSize);
 
-    Map selectSideNotifyByHeight(Integer height);
-    Map selectSideNotifyByTxhash(String txhash);
-    Map selectSideNotify(Integer pageSize, Integer pageNumber);
+    List<Map> selectSideNotifyByHeight(Integer height);
+    List<Map> selectSideNotifyByTxhash(String txhash);
+    List<Map> selectSideNotifyByPage(Integer start, Integer pageSize);
 }

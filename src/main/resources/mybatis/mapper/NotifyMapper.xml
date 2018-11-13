@@ -13,25 +13,49 @@
     <sql id="Base_Column_List">
     blkHeight, TxHash, ContractAddress, funcName, sideChainId,address,amount
     </sql>
-    <select id="selectMainNotifyByHeight" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <select id="selectMainNotifyByHeight" parameterType="java.lang.Integer" resultType="java.util.Map">
         select
         <include refid="Base_Column_List" />
         from tbl_mainchain_notify
-        where blkHeight = #{height,jdbcType=Integer}
+        where blkHeight = #{height,jdbcType=INTEGER}
     </select>
 
-    <select id="selectMainNotifyByTxhash" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <select id="selectMainNotifyByTxhash" parameterType="java.lang.String" resultType="java.util.Map">
         select
         <include refid="Base_Column_List" />
         from tbl_mainchain_notify
-        where TxHash = #{txhash,jdbcType=Integer}
+        where TxHash = #{txhash,jdbcType=VARCHAR}
     </select>
 
-    <select id="selectMainNotify" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <select id="selectMainNotifyByPage" resultType="java.util.Map">
         select
         <include refid="Base_Column_List" />
         from tbl_mainchain_notify
-        where TxHash = #{txhash,jdbcType=Integer}
+        order by id DESC
+        limit #{param1}, #{param2}
+    </select>
+
+
+    <select id="selectSideNotifyByHeight" parameterType="java.lang.Integer" resultType="java.util.Map">
+        select
+        <include refid="Base_Column_List" />
+        from tbl_sidechain_notify
+        where blkHeight = #{height,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectSideNotifyByTxhash" parameterType="java.lang.String" resultType="java.util.Map">
+        select
+        <include refid="Base_Column_List" />
+        from tbl_sidechain_notify
+        where TxHash = #{txhash,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectSideNotifyByPage" resultType="java.util.Map">
+        select
+        <include refid="Base_Column_List" />
+        from tbl_sidechain_notify
+        order by id DESC
+        limit #{param1}, #{param2}
     </select>
 
     <insert id="insertMainNotify" parameterType="com.github.ontio.model.NotifyInfoDao">

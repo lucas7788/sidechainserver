@@ -6,5 +6,5 @@ public interface ISideChainService {
     Result getSideCurrBlkHeight();
     Result getSideNotifyByBlkHeight(int blkHeight);
     Result getSideNotifyByTxHash(String txhash);
-    Result getSideNotifyAll();
+    Result getSideNotify(Integer pageSize, Integer pageNumber);
 }

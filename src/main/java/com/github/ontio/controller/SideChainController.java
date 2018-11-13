@@ -73,13 +73,14 @@ public class SideChainController {
      *
      * @return
      */
-    @RequestMapping(value = "/getnotifyall", method = RequestMethod.GET)
+    @RequestMapping(value = "/getnotifybypage/{pagesize}/{pagenumber}", method = RequestMethod.GET)
     @ResponseBody
-    public Result getMainNotifyAll() {
+    public Result getMainNotifyByPage(@PathVariable("pagenumber") Integer pageNumber,
+                                   @PathVariable("pagesize") Integer pageSize) {
 
         logger.info("########{}.{} begin...", CLASS_NAME, Helper.currentMethod());
 
-        Result rs = sideChainService.getSideNotifyAll();
+        Result rs = sideChainService.getSideNotify(pageSize, pageNumber);
         return rs;
     }
 }

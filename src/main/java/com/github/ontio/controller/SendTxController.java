@@ -51,7 +51,7 @@ public class SendTxController {
         logger.info("########{}.{} begin...", CLASS_NAME, Helper.currentMethod());
         logger.info("pageSize:{}, pageNumber；{}", pageSize, pageNumber);
 
-        Result rs = sendTxService.getSendTx(pageSize, pageNumber);
+        Result rs = sendTxService.getSendTxByPage(pageSize, pageNumber);
         return rs;
     }
 
@@ -81,7 +81,7 @@ public class SendTxController {
 
         logger.info("########{}.{} begin...", CLASS_NAME, Helper.currentMethod());
 
-        Result rs = sendTxService.getSendTxDetail(pageSize, pageNumber);
+        Result rs = sendTxService.getSendTxDetailByPage(pageSize, pageNumber);
         return rs;
     }
 }

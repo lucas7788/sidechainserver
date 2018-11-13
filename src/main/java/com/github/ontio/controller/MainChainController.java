@@ -2,7 +2,6 @@ package com.github.ontio.controller;
 
 
 import com.github.ontio.paramBean.Result;
-import com.github.ontio.service.impl.HandleServiceImpl;
 import com.github.ontio.service.impl.MainChainServiceImpl;
 import com.github.ontio.utils.Helper;
 import org.slf4j.Logger;
@@ -74,13 +73,14 @@ public class MainChainController {
      *
      * @return
      */
-    @RequestMapping(value = "/getnotifyall", method = RequestMethod.GET)
+    @RequestMapping(value = "/getnotifybypage/{pagesize}/{pagenumber}", method = RequestMethod.GET)
     @ResponseBody
-    public Result getMainNotifyAll() {
+    public Result getMainNotify(@PathVariable("pagenumber") Integer pageNumber,
+                                @PathVariable("pagesize") Integer pageSize) {
 
         logger.info("########{}.{} begin...", CLASS_NAME, Helper.currentMethod());
 
-        Result rs = mainChainService.getMainNotifyAll();
+        Result rs = mainChainService.getMainNotify(pageSize, pageNumber);
         return rs;
     }
 }

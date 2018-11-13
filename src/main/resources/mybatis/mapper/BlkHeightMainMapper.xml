@@ -10,7 +10,7 @@
   </insert>
 
     <select id="selectDBHeight" resultType="java.lang.Integer">
-    select blkheight
+    select blkHeight
     from tbl_mainchain_blkheight
   </select>
 
