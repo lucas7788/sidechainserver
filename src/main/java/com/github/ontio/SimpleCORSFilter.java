@@ -65,6 +65,12 @@ public class SimpleCORSFilter implements Filter {
 		ConstantParam.ADMIN_PASSWORD = configParam.ADMIN_PASSWORD;
 		ConstantParam.ADMIN_WALLET = configParam.ADMIN_WALLET;
 		ConstantParam.SDK = OntSdk.getInstance();
+		ConstantParam.SDK.openWalletFile(ConstantParam.ADMIN_WALLET);
+		try {
+			ConstantParam.ADMIN = ConstantParam.SDK.getWalletMgr().getAccount(ConstantParam.ADMIN_ADDRESS,ConstantParam.ADMIN_PASSWORD);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		ConstantParam.SDK.setRpc(ConstantParam.MAINCHAIN_RPC_URL);
 	}
 

@@ -20,6 +20,7 @@
 package com.github.ontio.utils;
 
 import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
 
 import java.math.BigDecimal;
 
@@ -35,6 +36,7 @@ public class ConstantParam {
     public static String ADMIN_ADDRESS;
     public static String ADMIN_PASSWORD;
     public static OntSdk SDK;
+    public static Account ADMIN;
 
 
 

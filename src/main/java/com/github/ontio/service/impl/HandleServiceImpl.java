@@ -2,6 +2,7 @@ package com.github.ontio.service.impl;
 
 import com.github.ontio.network.exception.ConnectorException;
 import com.github.ontio.paramBean.Result;
+import com.github.ontio.sdk.exception.SDKException;
 import com.github.ontio.service.IHandleService;
 import com.github.ontio.utils.ConstantParam;
 import com.github.ontio.utils.ErrorInfo;
@@ -25,11 +26,14 @@ public class HandleServiceImpl implements IHandleService {
             String sideChainData = ConstantParam.SDK.getConnect().getSideChainData("123456");
             Map<String, Object> rs = new HashMap<>();
             rs.put("sideChainData", sideChainData);
+            rs.put("signature", new String(ConstantParam.SDK.signatureData(ConstantParam.ADMIN,sideChainData.getBytes())));
             return Helper.result("getsidechaindata", ErrorInfo.SUCCESS.code(),ErrorInfo.SUCCESS.desc(),
                     VERSION,rs);
         } catch (ConnectorException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SDKException e) {
             e.printStackTrace();
         }
         return null;
