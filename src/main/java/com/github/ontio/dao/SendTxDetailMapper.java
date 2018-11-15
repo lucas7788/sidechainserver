@@ -14,6 +14,6 @@ import java.util.Map;
 public interface SendTxDetailMapper {
     int insertSendTxDetail(SendTxDetail info);
     int updateSendTxDetail(String txhash);
-    Map selectSendTxDetailByHash(String txhash);
+    List<Map> selectSendTxDetailByHash(String txhash);
     List<Map> selectSendTxDetailByPage(Integer start, Integer pageSize);
 }

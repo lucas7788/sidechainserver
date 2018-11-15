@@ -9,7 +9,7 @@
         <result column="description" jdbcType="VARCHAR" property="description" />
     </resultMap>
     <sql id="Base_Column_List">
-    blkHeight, amount, chainType, nodeUrl,functionName,sideChainId,address,txhash,result,description
+     txhash, nodeUrl,functionName,result,description
   </sql>
     <insert id="insert" parameterType="com.github.ontio.model.MsgInfo">
     insert into tbl_sendtx_msginfo (txhash,nodeUrl,functionName,result,description)

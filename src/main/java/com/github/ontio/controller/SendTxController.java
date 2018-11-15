@@ -28,7 +28,7 @@ public class SendTxController {
      *
      * @return
      */
-    @RequestMapping(value = "/getsendtxbyhash/{txhash}", method = RequestMethod.GET)
+    @RequestMapping(value = "/getsendtxbytxhash/{txhash}", method = RequestMethod.GET)
     @ResponseBody
     public Result getSendTxByTxhash(@PathVariable("txhash") String txhash) {
 
@@ -43,7 +43,7 @@ public class SendTxController {
      *
      * @return
      */
-    @RequestMapping(value = "/getsendtx/{pagesize}/{pagenumber}", method = RequestMethod.GET)
+    @RequestMapping(value = "/getsendtxbypage/{pagesize}/{pagenumber}", method = RequestMethod.GET)
     @ResponseBody
     public Result getSendTx(@PathVariable("pagenumber") Integer pageNumber,
                             @PathVariable("pagesize") Integer pageSize) {
@@ -60,7 +60,7 @@ public class SendTxController {
      *
      * @return
      */
-    @RequestMapping(value = "/getsendtxdetailbyhash/{txhash}", method = RequestMethod.GET)
+    @RequestMapping(value = "/getsendtxdetailbytxhash/{txhash}", method = RequestMethod.GET)
     @ResponseBody
     public Result getsendTxDetailByTxhash(@PathVariable("txhash") String txhash) {
         logger.info("########{}.{} begin...", CLASS_NAME, Helper.currentMethod());
@@ -74,7 +74,7 @@ public class SendTxController {
      *
      * @return
      */
-    @RequestMapping(value = "/getsendtxdetail/{pagesize}/{pagenumber}", method = RequestMethod.GET)
+    @RequestMapping(value = "/getsendtxdetailbypage/{pagesize}/{pagenumber}", method = RequestMethod.GET)
     @ResponseBody
     public Result getMainNotifyAll(@PathVariable("pagenumber") Integer pageNumber,
                                    @PathVariable("pagesize") Integer pageSize) {

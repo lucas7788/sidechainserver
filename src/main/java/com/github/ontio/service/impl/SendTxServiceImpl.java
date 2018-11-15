@@ -59,7 +59,7 @@ public class SendTxServiceImpl implements ISendTxService {
 
     @Override
     public Result getsendTxDetailByTxhash(String txhash) {
-        Map res = sendTxDetailMapper.selectSendTxDetailByHash(txhash);
+        List<Map> res = sendTxDetailMapper.selectSendTxDetailByHash(txhash);
         Map<String, Object> rs = new HashMap<>();
         rs.put("SendTxDetail", res);
         return Helper.result("getsendTxDetailByTxhash", ErrorInfo.SUCCESS.code(), ErrorInfo.SUCCESS.desc(),

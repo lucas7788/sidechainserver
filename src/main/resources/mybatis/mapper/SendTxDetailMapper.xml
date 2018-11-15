@@ -40,4 +40,12 @@
         limit #{param1}, #{param2}
     </select>
 
+    <select id="selectSendTxDetailByHash" resultType="java.util.Map" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from tbl_sendtx_detail
+        where
+        txhash = #{txhash,jdbcType=VARCHAR}
+    </select>
+
 </mapper>
